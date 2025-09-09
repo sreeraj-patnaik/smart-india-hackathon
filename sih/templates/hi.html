@@ -1,35 +1,60 @@
-
- {% load static %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SIH Project Landing Page</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-body {
-  font-family: 'Poppins', sans-serif;
-}
+    /* Reset and base */
+    *, *::before, *::after {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      color: #fff;
+      background-color: #111;
+      scroll-behavior: smooth;
+    }
 
     /* Navbar */
     nav {
       position: fixed;
-      font-size: 1rem;
-      top: 0;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.24);
-      color: white;
-      padding: 15px 40px;
+      top: 0; left: 0; right: 0;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 1rem 2.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      backdrop-filter: saturate(180%) blur(10px);
     }
-    nav ul { list-style: none; display: flex; gap: 20px; }
-    nav ul li { cursor: pointer; }
+    nav .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: 2px;
+      color: #f0a500;
+      user-select: none;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+    nav ul li {
+      cursor: pointer;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    nav ul li:hover,
+    nav ul li:focus {
+      color: #f0a500;
+      outline: none;
+    }
 
     /* Full-screen sections */
     section {
@@ -37,21 +62,27 @@ body {
       height: 100vh;
       background-size: cover;
       background-position: center;
-      background-attachment: fixed; /* fixed effect */
+      background-attachment: fixed;
       display: flex;
       justify-content: center;
       align-items: center;
+      padding: 0 1rem;
+      text-align: center;
     }
 
-    /* Text overlay */
+    /* Overlay text */
     .overlay {
-      color: white;
-      padding: 20px 40px;
-      font-size: 2rem;
-      border-radius: 10px;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 2rem 3rem;
+      border-radius: 12px;
+      font-size: clamp(1.5rem, 2vw, 2.5rem);
+      font-weight: 600;
       opacity: 0;
       transform: translateY(50px);
-      transition: all 1s ease;
+      transition: opacity 1s ease, transform 1s ease;
+      max-width: 800px;
+      user-select: none;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.6);
     }
     .overlay.show {
       opacity: 1;
@@ -67,63 +98,97 @@ body {
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 50px;
+      padding: 3rem 2rem;
+    }
+    .prototype h2 {
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      color: #222;
+      font-size: 2rem;
     }
     iframe {
       width: 80%;
       height: 70%;
       border: 2px solid #ccc;
-      border-radius: 10px;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    iframe:hover,
+    iframe:focus {
+      transform: scale(1.02);
+      outline: none;
+      border-color: #f0a500;
+      box-shadow: 0 6px 20px rgba(240, 165, 0, 0.6);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem 1.5rem;
+      }
+      nav ul {
+        gap: 1rem;
+      }
+      .overlay {
+        font-size: 1.5rem;
+        padding: 1.5rem 2rem;
+      }
+      iframe {
+        width: 100%;
+        height: 60vh;
+      }
     }
   </style>
 </head>
 <body>
 
-  <nav>
-    <div class="logo">SIH Project</div>
+  <nav role="navigation" aria-label="Primary Navigation">
+    <div class="logo" tabindex="0">SIH Project</div>
     <ul>
-      <li>Home</li>
-      <li>Features</li>
-      <li>Prototype</li>
-      <li>Contact</li>
+      <li tabindex="0" role="link" aria-label="Go to Home section">Home</li>
+      <li tabindex="0" role="link" aria-label="Go to Features section">Features</li>
+      <li tabindex="0" role="link" aria-label="Go to Prototype section">Prototype</li>
+      <li tabindex="0" role="link" aria-label="Go to Contact section">Contact</li>
     </ul>
   </nav>
 
- 
+  <main>
+    <section style="background-image:url('{% static "images/home1.jpg" %}');" aria-label="Empowering Students with AI">
+      <div class="overlay">Empowering Students with AI</div>
+    </section>
 
-<section style="background-image:url('{% static "images/home2.jpg" %}');">
-  <div class="overlay">Empowering Students with AI</div>
-</section>
+    <section style="background-image:url('{% static "images/home2.jpg" %}');" aria-label="Confidential and Secure Mental Health Support">
+      <div class="overlay">Confidential &amp; Secure Mental Health Support</div>
+    </section>
 
-<section style="background-image:url('{% static "images/home2.jpg" %}');">
-  <div class="overlay">Confidential & Secure Mental Health Support</div>
-</section>
+    <section style="background-image:url('{% static "images/home3.jpg" %}');" aria-label="Connecting Students, Counselors and Doctors">
+      <div class="overlay">Connecting Students, Counselors &amp; Doctors</div>
+    </section>
 
-<section style="background-image:url('{% static "images/home4.avif" %}');">
-  <div class="overlay">Connecting Students, Counselors & Doctors</div>
-</section>
-
- 
+    <section class="prototype" aria-label="Prototype demonstration">
+      <h2>Explore Our Prototype</h2>
+      <iframe src="https://your-prototype-link.com" title="SIH Project Prototype" allowfullscreen></iframe>
+    </section>
+  </main>
 
   <script>
-  const overlays = document.querySelectorAll('.overlay');
+    // Animate overlays on scroll
+    const overlays = document.querySelectorAll('.overlay');
 
-window.addEventListener('scroll', () => {
-  overlays.forEach(overlay => {
-    const rect = overlay.getBoundingClientRect();
-
-    if (rect.top < window.innerHeight - 100 && rect.bottom > 100) {
-      overlay.classList.add('show');
-    } 
-    else {
-      overlay.classList.remove('show');
+    function toggleOverlayVisibility() {
+      overlays.forEach(overlay => {
+        const rect = overlay.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100 && rect.bottom > 100) {
+          overlay.classList.add('show');
+        } else {
+          overlay.classList.remove('show');
+        }
+      });
     }
-  });
-});
 
+    window.addEventListener('scroll', toggleOverlayVisibility);
+    window.addEventListener('load', toggleOverlayVisibility);
   </script>
-</body>
-</html>
-
 </body>
 </html>
