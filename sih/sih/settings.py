@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-*65+7r!u9u_=9h*y5=1i(n%v5gm-)nn6vg2cod#e350fu$sfnq
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["dsreeraj.pythonanywhere.com"]
 
 
 # Application definition
@@ -135,3 +135,10 @@ CHANNEL_LAYERS = {
         "BACKEND": "channels.layers.InMemoryChannelLayer",
     }
 }
+
+
+
+import os
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
