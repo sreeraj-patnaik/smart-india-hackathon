@@ -1,0 +1,1770 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}About - MAPSS{% endblock %}
+
+{% block content %}
+
+<main class="about-page">
+<!-- HERO SECTION WITH ADVANCED PARALLAX -->
+<section id="hero" role="banner" aria-label="About MAPSS overview">
+  <div class="hero-bg-image"></div>
+
+<br><br><br><br>
+  <div class="hero-content">
+   
+    <h1 class="hero-title">
+      <span class="title-line">Student Mental Health</span>
+      <span class="title-line">Support System</span>
+    </h1>
+    <p class="hero-subtitle">AI-assisted, secure, and anonymous platform connecting students to resources, peers, and counselors</p>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-number">24/7</span>
+        <span class="stat-label">AI Support</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">100%</span>
+        <span class="stat-label">Anonymous</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">PHQ-9 & GAD-7</span>
+        <span class="stat-label">screenings</span>
+      </div>
+    </div>
+    <div class="hero-buttons">
+      <a href="#workflow" class="btn-primary btn-sharp">Explore Workflow</a>
+      <a href="#features" class="btn-secondary btn-sharp">View Features</a>
+    </div>
+  </div>
+
+  <div class="hero-geometric-shapes">
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
+    <div class="shape shape-4"></div>
+  </div>
+</section>
+
+<!-- PROBLEM-SOLUTION HIGHLIGHTS SECTION -->
+<section class="highlights-section" id="highlights">
+  <div class="container">
+    <h2 class="section-title">Why MAPSS Matters</h2>
+    <div class="highlights-grid">
+      <div class="highlight-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="card-icon">
+          <div class="icon-bg problem-icon"></div>
+        </div>
+        <h3>The Problem</h3>
+        <p>Students face mental health challenges with limited access to support due to stigma, resource constraints, and lack of awareness about available services.</p>
+        <div class="card-stats">
+         
+          <div class="stat">
+            <span class="stat-number">80%</span>
+            <span class="stat-label">Don't seek help</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="highlight-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="card-icon">
+          <div class="icon-bg solution-icon"></div>
+        </div>
+        <h3>Our Solution</h3>
+        <p>MAPSS provides AI-driven assessments, anonymous counseling options, and comprehensive mental health resources in one accessible platform.</p>
+        <div class="card-stats">
+          <div class="stat">
+            <span class="stat-number">24/7</span>
+            <span class="stat-label">AI Support</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">Anonymous</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="highlight-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="card-icon">
+          <div class="icon-bg impact-icon"></div>
+        </div>
+        <h3>Key Features</h3>
+        <ul class="feature-list">
+          <li><span class="feature-icon">🤖</span> AI-driven mental health chat</li>
+          <li><span class="feature-icon">📊</span> PHQ-9 & GAD-7 screenings</li>
+          <li><span class="feature-icon">🔒</span> Anonymous/Public toggle</li>
+          <li><span class="feature-icon">👥</span> Peer support forum</li>
+          <li><span class="feature-icon">🏥</span> Counselor matching</li>
+          <li><span class="feature-icon">📚</span> Resource library</li>
+      </ul>
+  </div>
+    </div>
+  </div>
+</section>
+
+<!-- DETAILED WORKFLOW SECTION WITH SLIDING ANIMATIONS -->
+<section class="workflow-section" id="workflow">
+  <div class="container">
+    <h2 class="section-title">Complete MAPSS Workflow</h2>
+    <p class="section-subtitle">Follow the journey from student login to comprehensive mental health support</p>
+    
+    <div class="workflow-container">
+      <div class="workflow-step" data-step="1">
+        <div class="step-number">01</div>
+        <div class="step-content">
+          <div class="step-icon">
+            <div class="icon-circle login-icon"></div>
+          </div>
+          <h3>Student Login (College Mapped)</h3>
+          <p>Secure authentication system where students log in with their college credentials, ensuring verified access and data protection.</p>
+          <div class="step-features">
+            <span class="feature-tag">Secure Access</span>
+            <span class="feature-tag">College Verified</span>
+            <span class="feature-tag">Data Protected</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="workflow-step" data-step="2">
+        <div class="step-number">02</div>
+        <div class="step-content">
+          <div class="step-icon">
+            <div class="icon-circle ai-icon"></div>
+          </div>
+          <h3>AI Chatbot - First Level Aid</h3>
+          <p>Intelligent AI assistant provides immediate support, initial assessment, and guidance 24/7 without any human intervention.</p>
+          <div class="step-features">
+            <span class="feature-tag">24/7 Available</span>
+            <span class="feature-tag">Instant Response</span>
+            <span class="feature-tag">AI Powered</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="workflow-step" data-step="3">
+        <div class="step-number">03</div>
+        <div class="step-content">
+          <div class="step-icon">
+            <div class="icon-circle screening-icon"></div>
+          </div>
+          <h3>PHQ-9 & GAD-7 Screening Tests</h3>
+          <p>Standardized psychological assessments to evaluate depression and anxiety levels, providing professional-grade mental health screening.</p>
+          <div class="step-features">
+            <span class="feature-tag">Clinical Standard</span>
+            <span class="feature-tag">Self-Assessment</span>
+            <span class="feature-tag">Detailed Reports</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="workflow-step" data-step="4">
+        <div class="step-number">04</div>
+        <div class="step-content">
+          <div class="step-icon">
+            <div class="icon-circle privacy-icon"></div>
+          </div>
+          <h3>Anonymous / Public Toggle</h3>
+          <p>Students can choose between anonymous or public interactions, giving them complete control over their privacy and comfort level.</p>
+          <div class="step-features">
+            <span class="feature-tag">Privacy Control</span>
+            <span class="feature-tag">User Choice</span>
+            <span class="feature-tag">Comfort Level</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="workflow-step" data-step="5">
+        <div class="step-number">05</div>
+        <div class="step-content">
+          <div class="step-icon">
+            <div class="icon-circle grievance-icon"></div>
+          </div>
+          <h3>College Grievance Cell Integration</h3>
+          <p>Direct integration with college grievance systems, allowing students to report issues with full details (if public) or anonymously (with ID tracking).</p>
+          <div class="step-features">
+            <span class="feature-tag">Institutional Support</span>
+            <span class="feature-tag">Issue Tracking</span>
+            <span class="feature-tag">Formal Process</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="workflow-step" data-step="6">
+        <div class="step-number">06</div>
+        <div class="step-content">
+          <div class="step-icon">
+            <div class="icon-circle resources-icon"></div>
+          </div>
+          <h3>Resources & Learning Materials</h3>
+          <p>Comprehensive library of books, videos, articles, and self-help resources curated specifically for student mental health and well-being.</p>
+          <div class="step-features">
+            <span class="feature-tag">Curated Content</span>
+            <span class="feature-tag">Self-Help</span>
+            <span class="feature-tag">Educational</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="workflow-step" data-step="7">
+        <div class="step-number">07</div>
+        <div class="step-content">
+          <div class="step-icon">
+            <div class="icon-circle forum-icon"></div>
+          </div>
+          <h3>Moderated Peer Support Forum</h3>
+          <p>Safe space for students to connect, share experiences, and support each other under professional moderation and community guidelines.</p>
+          <div class="step-features">
+            <span class="feature-tag">Peer Support</span>
+            <span class="feature-tag">Moderated</span>
+            <span class="feature-tag">Community</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="workflow-step" data-step="8">
+        <div class="step-number">08</div>
+        <div class="step-content">
+          <div class="step-icon">
+            <div class="icon-circle dashboard-icon"></div>
+          </div>
+          <h3>College Dashboard & Analytics</h3>
+          <p>Administrative dashboard providing insights into student well-being trends, usage patterns, and mental health support effectiveness.</p>
+          <div class="step-features">
+            <span class="feature-tag">Analytics</span>
+            <span class="feature-tag">Trends</span>
+            <span class="feature-tag">Insights</span>
+          </div>
+        </div>
+  </div>
+
+      <div class="workflow-step" data-step="9">
+        <div class="step-number">09</div>
+        <div class="step-content">
+          <div class="step-icon">
+            <div class="icon-circle consultation-icon"></div>
+          </div>
+          <h3>Professional Consultation</h3>
+          <p>Direct connection to qualified doctors and counselors for personalized, professional mental health support and treatment.</p>
+          <div class="step-features">
+            <span class="feature-tag">Professional Help</span>
+            <span class="feature-tag">Personalized</span>
+            <span class="feature-tag">Qualified Staff</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES SECTION WITH IMAGE LOCKING -->
+<section class="features-section" id="features">
+  <div class="container">
+    <h2 class="section-title">Core Features & Capabilities</h2>
+    <p class="section-subtitle">Comprehensive mental health support tools designed for students</p>
+    
+    <div class="features-grid">
+      <div class="feature-card" data-feature="ai-chat">
+        <div class="feature-image">
+          <div class="image-placeholder ai-chat-img"></div>
+          <div class="image-overlay">
+            <span class="play-icon">▶</span>
+          </div>
+        </div>
+        <div class="feature-content">
+          <h3>AI Mental Health Chatbot</h3>
+          <p>24/7 intelligent support system providing immediate assistance, crisis intervention, and preliminary mental health assessments.</p>
+          <ul class="feature-benefits">
+            <li>Instant response to mental health queries</li>
+            <li>Crisis detection and intervention</li>
+            <li>Personalized conversation flow</li>
+            <li>Multi-language support</li>
+          </ul>
+        </div>
+  </div>
+
+      <div class="feature-card" data-feature="screening">
+        <div class="feature-image">
+          <div class="image-placeholder screening-img"></div>
+          <div class="image-overlay">
+            <span class="play-icon">▶</span>
+          </div>
+        </div>
+        <div class="feature-content">
+          <h3>Clinical Screening Tools</h3>
+          <p>Professional-grade PHQ-9 and GAD-7 assessments providing accurate mental health evaluations and detailed reports.</p>
+          <ul class="feature-benefits">
+            <li>PHQ-9 depression screening</li>
+            <li>GAD-7 anxiety assessment</li>
+            <li>Detailed scoring and reports</li>
+            <li>Progress tracking over time</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="feature-card" data-feature="privacy">
+        <div class="feature-image">
+          <div class="image-placeholder privacy-img"></div>
+          <div class="image-overlay">
+            <span class="play-icon">▶</span>
+          </div>
+        </div>
+        <div class="feature-content">
+          <h3>Privacy & Anonymity Controls</h3>
+          <p>Complete user control over privacy settings, allowing anonymous or public interactions based on comfort level.</p>
+          <ul class="feature-benefits">
+            <li>Anonymous interaction option</li>
+            <li>Public profile choice</li>
+            <li>Data encryption and security</li>
+            <li>User-controlled disclosure</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="feature-card" data-feature="resources">
+        <div class="feature-image">
+          <div class="image-placeholder resources-img"></div>
+          <div class="image-overlay">
+            <span class="play-icon">▶</span>
+          </div>
+        </div>
+        <div class="feature-content">
+          <h3>Comprehensive Resource Library</h3>
+          <p>Curated collection of books, videos, articles, and self-help materials specifically designed for student mental health.</p>
+          <ul class="feature-benefits">
+            <li>Curated mental health content</li>
+            <li>Video tutorials and guides</li>
+            <li>Interactive self-help tools</li>
+            <li>Regular content updates</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="feature-card" data-feature="forum">
+        <div class="feature-image">
+          <div class="image-placeholder forum-img"></div>
+          <div class="image-overlay">
+            <span class="play-icon">▶</span>
+          </div>
+        </div>
+        <div class="feature-content">
+          <h3>Peer Support Community</h3>
+          <p>Moderated peer support forum where students can share experiences, seek advice, and build supportive relationships.</p>
+          <ul class="feature-benefits">
+            <li>Peer-to-peer support</li>
+            <li>Professional moderation</li>
+            <li>Safe discussion environment</li>
+            <li>Community guidelines enforcement</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="feature-card" data-feature="counseling">
+        <div class="feature-image">
+          <div class="image-placeholder counseling-img"></div>
+          <div class="image-overlay">
+            <span class="play-icon">▶</span>
+          </div>
+        </div>
+        <div class="feature-content">
+          <h3>Professional Counseling</h3>
+          <p>Direct connection to qualified mental health professionals for personalized support and treatment planning.</p>
+          <ul class="feature-benefits">
+            <li>Qualified counselor matching</li>
+            <li>Flexible appointment scheduling</li>
+            <li>Secure video consultations</li>
+            <li>Treatment plan tracking</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM SECTION -->
+<section class="team-section" id="team">
+  <div class="container">
+    <h2 class="section-title">Our Team</h2>
+    <p class="section-subtitle">Meet the dedicated professionals behind MAPSS</p>
+    
+    <div class="team-grid">
+      <div class="team-member" data-member="1">
+        <div class="member-photo">
+          <div class="photo-placeholder"></div>
+          <div class="member-overlay">
+            <div class="social-links">
+              <a href="#" class="social-link">LinkedIn</a>
+              <a href="#" class="social-link">Twitter</a>
+    </div>
+    </div>
+    </div>
+        <div class="member-info">
+          <h3>Dr. Sarah Johnson</h3>
+          <p class="member-role">Lead Psychologist</p>
+          <p class="member-bio">Expert in student mental health with 15+ years of experience in university counseling services.</p>
+    </div>
+  </div>
+
+      <div class="team-member" data-member="2">
+        <div class="member-photo">
+          <div class="photo-placeholder"></div>
+          <div class="member-overlay">
+            <div class="social-links">
+              <a href="#" class="social-link">LinkedIn</a>
+              <a href="#" class="social-link">Twitter</a>
+            </div>
+          </div>
+        </div>
+        <div class="member-info">
+          <h3>Prof. Michael Chen</h3>
+          <p class="member-role">AI Technology Lead</p>
+          <p class="member-bio">AI researcher specializing in mental health applications and natural language processing.</p>
+        </div>
+      </div>
+
+      <div class="team-member" data-member="3">
+        <div class="member-photo">
+          <div class="photo-placeholder"></div>
+          <div class="member-overlay">
+            <div class="social-links">
+              <a href="#" class="social-link">LinkedIn</a>
+              <a href="#" class="social-link">Twitter</a>
+            </div>
+          </div>
+        </div>
+        <div class="member-info">
+          <h3>Dr. Emily Rodriguez</h3>
+          <p class="member-role">Clinical Director</p>
+          <p class="member-bio">Licensed clinical psychologist with expertise in digital mental health interventions.</p>
+        </div>
+      </div>
+
+      <div class="team-member" data-member="4">
+        <div class="member-photo">
+          <div class="photo-placeholder"></div>
+          <div class="member-overlay">
+            <div class="social-links">
+              <a href="#" class="social-link">LinkedIn</a>
+              <a href="#" class="social-link">Twitter</a>
+            </div>
+          </div>
+        </div>
+        <div class="member-info">
+          <h3>Alex Thompson</h3>
+          <p class="member-role">UX/UI Designer</p>
+          <p class="member-bio">Designer focused on creating accessible and user-friendly mental health interfaces.</p>
+    </div>
+    </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ADVANCED JAVASCRIPT FOR INTERACTIONS -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Parallax scrolling effect
+  const parallaxElements = document.querySelectorAll('.parallax-bg');
+  
+  window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const rate = scrolled * -0.5;
+    
+    parallaxElements.forEach((element, index) => {
+      const speed = parseFloat(element.dataset.speed) || 0.5;
+      element.style.transform = `translateY(${scrolled * speed}px)`;
+    });
+  }); 
+
+  // Intersection Observer for animations
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate');
+      }
+    });
+  }, observerOptions);
+
+  // Observe elements for animation
+  document.querySelectorAll('.highlight-card, .workflow-step, .feature-card, .team-member').forEach(el => {
+    observer.observe(el);
+  });
+
+  // Workflow steps animation with stagger
+  const workflowSteps = document.querySelectorAll('.workflow-step');
+  const workflowObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('animate');
+        }, index * 200);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  workflowSteps.forEach(step => {
+    workflowObserver.observe(step);
+  });
+
+  // Feature cards image locking effect
+  const featureCards = document.querySelectorAll('.feature-card');
+  featureCards.forEach(card => {
+    const image = card.querySelector('.image-placeholder');
+    
+    card.addEventListener('mouseenter', () => {
+      image.style.transform = 'scale(1.1)';
+      image.style.transition = 'transform 0.4s ease';
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      image.style.transform = 'scale(1)';
+    });
+  });
+
+  // Smooth scrolling for navigation links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+
+  // Add floating particles animation
+  function createParticle() {
+    const particle = document.createElement('div');
+    particle.style.position = 'absolute';
+    particle.style.width = '4px';
+    particle.style.height = '4px';
+    particle.style.background = '#f0a500';
+    particle.style.borderRadius = '50%';
+    particle.style.pointerEvents = 'none';
+    particle.style.left = Math.random() * 100 + '%';
+    particle.style.top = '100%';
+    particle.style.opacity = '0.7';
+    
+    document.querySelector('.floating-particles').appendChild(particle);
+    
+    const animation = particle.animate([
+      { transform: 'translateY(0) rotate(0deg)', opacity: 0.7 },
+      { transform: `translateY(-100vh) rotate(360deg)`, opacity: 0 }
+    ], {
+      duration: Math.random() * 3000 + 2000,
+      easing: 'linear'
+    });
+    
+    animation.onfinish = () => particle.remove();
+  }
+
+  // Create particles periodically
+  setInterval(createParticle, 500);
+
+  // Add scroll progress indicator
+  const progressBar = document.createElement('div');
+  progressBar.style.position = 'fixed';
+  progressBar.style.top = '0';
+  progressBar.style.left = '0';
+  progressBar.style.width = '0%';
+  progressBar.style.height = '3px';
+  progressBar.style.background = 'linear-gradient(45deg, #f0a500, #ffb733)';
+  progressBar.style.zIndex = '9999';
+  progressBar.style.transition = 'width 0.1s ease';
+  document.body.appendChild(progressBar);
+
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.pageYOffset;
+    const docHeight = document.body.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    progressBar.style.width = scrollPercent + '%';
+  });
+
+  {% comment %} // Add typing effect to hero title
+  const titleLines = document.querySelectorAll('.title-line');
+  titleLines.forEach((line, index) => {
+    const text = line.textContent;
+    line.textContent = '';
+    line.style.opacity = '1';
+    
+    setTimeout(() => {
+      let i = 0;
+      const typeInterval = setInterval(() => {
+        if (i < text.length) {
+          line.textContent += text.charAt(i);
+          i++;
+        } else {
+          clearInterval(typeInterval);
+        }
+      }, 100);
+    }, index * 500);
+  }); {% endcomment %}
+
+  // Add magnetic effect to buttons
+  document.querySelectorAll('.btn-primary, .btn-secondary').forEach(button => {
+    button.addEventListener('mousemove', (e) => {
+      const rect = button.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      
+      button.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
+    });
+    
+    button.addEventListener('mouseleave', () => {
+      button.style.transform = 'translate(0, 0)';
+    });
+  });
+
+  // Add ripple effect to buttons
+  document.querySelectorAll('.btn-primary, .btn-secondary').forEach(button => {
+    button.addEventListener('click', function(e) {
+      const ripple = document.createElement('span');
+      const rect = this.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+      const x = e.clientX - rect.left - size / 2;
+      const y = e.clientY - rect.top - size / 2;
+      
+      ripple.style.width = ripple.style.height = size + 'px';
+      ripple.style.left = x + 'px';
+      ripple.style.top = y + 'px';
+      ripple.classList.add('ripple');
+      
+      this.appendChild(ripple);
+      
+      setTimeout(() => {
+        ripple.remove();
+      }, 600);
+    });
+  });
+});
+
+// Add CSS for ripple effect
+const style = document.createElement('style');
+style.textContent = `
+  .btn-primary, .btn-secondary {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(0);
+    animation: ripple-animation 0.6s linear;
+    pointer-events: none;
+  }
+  
+  @keyframes ripple-animation {
+    to {
+      transform: scale(4);
+      opacity: 0;
+    }
+  }
+`;
+document.head.appendChild(style);
+</script>
+
+<!-- COMPREHENSIVE CSS STYLES -->
+  <style>
+/* Advanced About Page Styles */
+
+/* Main Container */
+.about-page {
+  position: relative;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Reset any conflicting styles from base template */
+.about-page section {
+  position: relative !important;
+  height: auto !important;
+  background-attachment: scroll !important;
+  display: block !important;
+  clear: both !important;
+}
+
+.about-page #hero {
+  height: 100vh !important;
+  background-attachment: fixed !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Ensure proper flow */
+.about-page > section {
+  margin: 0 !important;
+  padding: 6rem 0 !important;
+}
+
+.about-page > section:first-child {
+  padding-top: 0 !important;
+}
+
+/* Hero Section with Parallax */
+#hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  overflow: hidden;
+  margin-bottom: 0;
+  z-index: 1;
+  width: 100%;
+  left: 0;
+  right: 0;
+}
+
+.hero-bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('{% static "images/home1.jpg" %}');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.4;
+  z-index: 0;
+  filter: contrast(1.1) brightness(0.9) saturate(1.2);
+}
+
+.parallax-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  background-size: cover;
+      background-position: center;
+  background-attachment: fixed;
+  will-change: transform;
+}
+
+.parallax-bg:nth-child(1) {
+  background: linear-gradient(45deg, rgba(0,240,236,0.05), rgba(102,171,255,0.05));
+  z-index: 1;
+}
+
+.parallax-bg:nth-child(2) {
+  background: linear-gradient(135deg, rgba(247,255,4,0.05), rgba(255,107,107,0.05));
+  z-index: 2;
+}
+
+.parallax-bg:nth-child(3) {
+  background: linear-gradient(225deg, rgba(138,43,226,0.05), rgba(30,144,255,0.05));
+  z-index: 3;
+}
+
+    .hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0,0,0,0.2), rgba(0,0,0,0.3));
+  z-index: 4;
+}
+
+.floating-particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 6;
+  width: 100%;
+  
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  animation: heroFadeIn 1.5s ease-out forwards;
+  text-align: center;
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.9), 0 0 40px rgba(240,165,0,0.3);
+  color: #fff;
+  text-align: center;
+  width: 100%;
+}
+
+.title-line {
+  display: block;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: titleSlideIn 1s ease-out forwards;
+}
+
+.title-line:nth-child(1) { animation-delay: 0.2s; }
+.title-line:nth-child(2) { animation-delay: 0.4s; }
+.title-line:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes titleSlideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 3vw, 1.4rem);
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  animation: subtitleFadeIn 1s ease-out 0.8s forwards;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.8), 0 0 20px rgba(255,255,255,0.2);
+  color: #fff;
+  text-align: center;
+  width: 100%;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@keyframes subtitleFadeIn {
+  to { opacity: 1; }
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: buttonsFadeIn 1s ease-out 1s forwards;
+}
+
+@keyframes buttonsFadeIn {
+  to { opacity: 1; }
+}
+
+.btn-primary, .btn-secondary {
+  padding: 1rem 2.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  border: 2px solid transparent;
+}
+
+.btn-sharp {
+  border-radius: 4px !important;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+}
+
+.btn-primary {
+  background: linear-gradient(45deg, #f0a500, #ffb733);
+  color: #111;
+  box-shadow: 0 8px 25px rgba(240, 165, 0, 0.4);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #f0a500;
+}
+
+.btn-animated::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-animated:hover::before {
+  left: 100%;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(240, 165, 0, 0.6);
+}
+
+.btn-secondary:hover {
+  background: #f0a500;
+  color: #111;
+  transform: translateY(-3px);
+}
+
+/* Hero Badge */
+.hero-badge {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  background: rgba(240, 165, 0, 0.1);
+  border: 2px solid #f0a500;
+  padding: 0.5rem 1.5rem;
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+  z-index: 7;
+  opacity: 0;
+  animation: badgeFadeIn 1s ease-out 0.5s forwards;
+}
+
+.badge-text {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #f0a500;
+  letter-spacing: 1px;
+  padding: 5px 0;
+
+}
+
+@keyframes badgeFadeIn {
+  to { opacity: 1; }
+}
+
+/* Hero Stats */
+.hero-stats {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+  margin: 2rem 0;
+  opacity: 0;
+  animation: statsFadeIn 1s ease-out 1.2s forwards;
+}
+
+@keyframes statsFadeIn {
+  to { opacity: 1; }
+}
+
+.stat-item {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1.5rem 2rem;
+  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-5px);
+}
+
+.stat-number {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #f0a500;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #ccc;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Geometric Shapes */
+.hero-geometric-shapes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.shape {
+  position: absolute;
+  background: linear-gradient(45deg, rgba(240, 165, 0, 0.1), rgba(102, 171, 255, 0.1));
+  animation: floatShape 20s linear infinite;
+}
+
+.shape-1 {
+  width: 120px;
+  height: 120px;
+  top: 20%;
+  left: 10%;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  animation-delay: 0s;
+}
+
+.shape-2 {
+  width: 80px;
+  height: 80px;
+  top: 60%;
+  right: 15%;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  animation-delay: 5s;
+}
+
+.shape-3 {
+  width: 100px;
+  height: 100px;
+  top: 40%;
+  right: 5%;
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  animation-delay: 10s;
+}
+
+.shape-4 {
+  width: 60px;
+  height: 60px;
+  bottom: 30%;
+  left: 5%;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  animation-delay: 15s;
+}
+
+@keyframes floatShape {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-20px) rotate(90deg); }
+  50% { transform: translateY(-10px) rotate(180deg); }
+  75% { transform: translateY(-30px) rotate(270deg); }
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 6;
+  opacity: 0;
+  animation: scrollIndicatorFade 1s ease-out 1.5s forwards;
+}
+
+@keyframes scrollIndicatorFade {
+  to { opacity: 1; }
+}
+
+.scroll-arrow {
+  width: 30px;
+  height: 50px;
+  border: 2px solid #f0a500;
+  border-radius: 4px;
+  margin: 0 auto 0.5rem;
+  position: relative;
+  animation: bounce 2s infinite;
+  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
+}
+
+.scroll-arrow-sharp {
+  width: 30px;
+  height: 50px;
+  border: 2px solid #f0a500;
+  margin: 0 auto 0.5rem;
+  position: relative;
+  animation: bounce 2s infinite;
+  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
+}
+
+.scroll-arrow::after,
+.scroll-arrow-sharp::after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background: #f0a500;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  animation: scrollDot 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+
+@keyframes scrollDot {
+  0% { top: 10px; opacity: 1; }
+  50% { top: 30px; opacity: 0; }
+  100% { top: 10px; opacity: 1; }
+}
+
+/* Section Titles */
+.section-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #f0a500;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(45deg, #f0a500, #ffb733);
+  border-radius: 2px;
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #ccc;
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Highlights Section */
+.highlights-section {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  position: relative;
+  overflow: hidden;
+  margin-top: 0;
+  z-index: 2;
+  width: 100%;
+  display: block;
+}
+
+.highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.highlight-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 2.5rem;
+      backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.highlight-card.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.highlight-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(45deg, #f0a500, #ffb733);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.highlight-card:hover::before {
+  transform: scaleX(1);
+}
+
+.highlight-card:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.card-icon {
+  margin-bottom: 1.5rem;
+}
+
+.icon-bg {
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin: 0 auto;
+}
+
+.problem-icon {
+  background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+}
+
+.solution-icon {
+  background: linear-gradient(45deg, #4ecdc4, #6bcf7f);
+}
+
+.impact-icon {
+  background: linear-gradient(45deg, #f0a500, #ffb733);
+}
+
+.highlight-card h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.highlight-card p {
+  color: #ccc;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.card-stats {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-number {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #f0a500;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #999;
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+}
+
+.feature-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  color: #ccc;
+}
+
+.feature-icon {
+  font-size: 1.2rem;
+}
+
+/* Workflow Section */
+.workflow-section {
+  padding: 6rem 0;
+  background: #111;
+  position: relative;
+  margin-top: 0;
+  z-index: 3;
+  width: 100%;
+  display: block;
+}
+
+.workflow-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.workflow-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 20px;
+  border-left: 4px solid #f0a500;
+  transition: all 0.4s ease;
+  opacity: 0;
+  transform: translateX(-50px);
+}
+
+.workflow-step:nth-child(even) {
+  transform: translateX(50px);
+  border-left: none;
+  border-right: 4px solid #f0a500;
+}
+
+.workflow-step.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.workflow-step:hover {
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateY(-5px);
+}
+
+.step-number {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #f0a500;
+  min-width: 80px;
+  text-align: center;
+  opacity: 0.3;
+}
+
+.step-content {
+  flex: 1;
+}
+
+.step-icon {
+  margin-bottom: 1rem;
+}
+
+.icon-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin: 0 auto;
+}
+
+.login-icon { background: linear-gradient(45deg, #4ecdc4, #6bcf7f); }
+.ai-icon { background: linear-gradient(45deg, #ff6b6b, #ff8e8e); }
+.screening-icon { background: linear-gradient(45deg, #f0a500, #ffb733); }
+.privacy-icon { background: linear-gradient(45deg, #9b59b6, #e74c3c); }
+.grievance-icon { background: linear-gradient(45deg, #3498db, #2980b9); }
+.resources-icon { background: linear-gradient(45deg, #2ecc71, #27ae60); }
+.forum-icon { background: linear-gradient(45deg, #e67e22, #d35400); }
+.dashboard-icon { background: linear-gradient(45deg, #34495e, #2c3e50); }
+.consultation-icon { background: linear-gradient(45deg, #e91e63, #c0392b); }
+
+.workflow-step h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.workflow-step p {
+  color: #ccc;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.step-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.feature-tag {
+  background: rgba(240, 165, 0, 0.2);
+  color: #f0a500;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* Features Section */
+.features-section {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #16213e 0%, #0f0f23 100%);
+  position: relative;
+  margin-top: 0;
+  z-index: 4;
+  width: 100%;
+  display: block;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+}
+
+.feature-card {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.feature-card.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.feature-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.image-placeholder {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.4s ease;
+}
+
+.ai-chat-img { background: linear-gradient(45deg, #667eea, #764ba2); }
+.screening-img { background: linear-gradient(45deg, #f093fb, #f5576c); }
+.privacy-img { background: linear-gradient(45deg, #4facfe, #00f2fe); }
+.resources-img { background: linear-gradient(45deg, #43e97b, #38f9d7); }
+.forum-img { background: linear-gradient(45deg, #fa709a, #fee140); }
+.counseling-img { background: linear-gradient(45deg, #a8edea, #fed6e3); }
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.feature-card:hover .image-overlay {
+  opacity: 1;
+}
+
+.feature-card:hover .image-placeholder {
+  transform: scale(1.1);
+}
+
+.play-icon {
+  font-size: 3rem;
+  color: #f0a500;
+}
+
+.feature-content {
+  padding: 2rem;
+}
+
+.feature-content h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.feature-content p {
+  color: #ccc;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.feature-benefits {
+  list-style: none;
+  padding: 0;
+}
+
+.feature-benefits li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  color: #ccc;
+  font-size: 0.9rem;
+}
+
+.feature-benefits li::before {
+  content: '✓';
+  color: #f0a500;
+  font-weight: bold;
+}
+
+/* Team Section */
+.team-section {
+  padding: 6rem 0;
+  background: #111;
+  margin-top: 0;
+  z-index: 5;
+  position: relative;
+  width: 100%;
+  display: block;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.team-member {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 20px;
+  padding: 2rem;
+  transition: all 0.4s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.team-member.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.team-member:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.member-photo {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.photo-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #f0a500, #ffb733);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: #111;
+}
+
+.member-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.team-member:hover .member-overlay {
+  opacity: 1;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-link {
+  color: #f0a500;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.social-link:hover {
+  color: #ffb733;
+}
+
+.member-info h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.member-role {
+  color: #f0a500;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.member-bio {
+  color: #ccc;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* CTA Section */
+.cta-section {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #f0a500 0%, #ffb733 100%);
+  color: #111;
+  text-align: center;
+  margin-top: 0;
+  z-index: 6;
+  position: relative;
+  width: 100%;
+  display: block;
+}
+
+.cta-content h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.cta-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-large {
+  padding: 1.2rem 3rem;
+  font-size: 1.1rem;
+}
+
+.cta-section .btn-primary {
+  background: #111;
+  color: #f0a500;
+}
+
+.cta-section .btn-secondary {
+  background: transparent;
+  color: #111;
+  border: 2px solid #111;
+}
+
+.cta-section .btn-primary:hover {
+  background: #222;
+  color: #ffb733;
+}
+
+.cta-section .btn-secondary:hover {
+  background: #111;
+  color: #f0a500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .hero-badge {
+    top: 1rem;
+    right: 1rem;
+    padding: 0.4rem 1rem;
+  }
+  
+  .badge-text {
+    font-size: 0.8rem;
+  }
+  
+  .hero-stats {
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+  }
+  
+  .stat-item {
+    padding: 1rem 1.5rem;
+  }
+  
+  .stat-number {
+    font-size: 2rem;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .shape {
+    display: none;
+  }
+  
+  .workflow-step {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .workflow-step:nth-child(even) {
+    transform: translateX(0);
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .team-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .highlight-card,
+  .feature-card,
+  .team-member {
+    padding: 1.5rem;
+  }
+}
+</style>
+
+{% endblock %}
