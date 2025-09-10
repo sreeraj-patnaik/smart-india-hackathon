@@ -426,6 +426,121 @@
         font-size: 1rem;
       }
     }
+/* ===== Auth Pages ===== */
+.auth-wrapper {
+  background: #111;
+  color: #fff;
+  padding: 6rem 5% 8rem;   /* top space for navbar + bottom gap for footer */
+  max-width: 1400px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+.auth-wrapper h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #f0a500; /* MAPSS accent */
+}
+
+/* Grid for inputs */
+.auth-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Full width fields */
+.auth-grid .full {
+  grid-column: 1 / -1;
+}
+
+/* Labels & Inputs */
+.auth-wrapper label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+  color: #ddd;
+}
+
+.auth-wrapper input,
+.auth-wrapper select,
+.auth-wrapper textarea {
+  width: 100%;
+  padding: 0.9rem;
+  border: 1px solid #333;
+  background: #1a1a1a;
+  color: #fff;
+  font-size: 1rem;
+  border-radius: 0; /* sharp edges */
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.auth-wrapper input:focus,
+.auth-wrapper select:focus,
+.auth-wrapper textarea:focus {
+  border-color: #f0a500;
+}
+
+/* Sections */
+.auth-wrapper fieldset {
+  border: 1px solid #333;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.auth-wrapper legend {
+  font-weight: 600;
+  color: #f0a500;
+  padding: 0 0.5rem;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+}
+
+/* Button */
+.auth-wrapper .btn-primary {
+  display: inline-block;
+  background: #f0a500;
+  color: #111;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 1rem 2rem;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  border-radius: 0;
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 320px;
+}
+
+.auth-wrapper .btn-primary:hover {
+  background: #d98c00;
+}
+
+/* Bottom text */
+.auth-wrapper p {
+  margin-top: 2rem;
+  font-size: 0.95rem;
+  color: #aaa;
+}
+
+.auth-wrapper p a {
+  color: #f0a500;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.auth-wrapper p a:hover {
+  text-decoration: underline;
+}
+
+    
   </style>
 </head>
 <body>
@@ -437,15 +552,33 @@
     </div>
     <ul>
       <li tabindex="0" role="link" aria-label="Go to Home section" onclick="window.location.href='/'">Home</li>
-      <li tabindex="0" role="link" aria-label="Go to Features section" onclick="window.location.href='/features/'">Features</li>
-      <li tabindex="0" role="link" aria-label="Go to Prototype section" onclick="window.location.href='/prototype/'">Prototype</li>
       <li tabindex="0" role="link" aria-label="Go to About section" onclick="window.location.href='/about/'">About</li>
-      <li tabindex="0" role="link" aria-label="Go to Contact section" onclick="window.location.href='/contact/'">Contact</li>
+      {% if request.user.is_authenticated %}
+        <li tabindex="0" style="display:flex; align-items:center; gap:0.5rem;">
+          {% if request.user.profile.photo %}
+            <img src="{{ request.user.profile.photo.url }}" alt="{{ request.user.username }}" style="width:32px;height:32px;border-radius:50%;object-fit:cover;border:1px solid #333;"/>
+          {% endif %}
+          <span>Hello, {{ request.user.first_name|default:request.user.username }}</span>
+        </li>
+        <li tabindex="0" role="link" aria-label="Logout" onclick="window.location.href='/logout/'">Logout</li>
+      {% else %}
+        <li tabindex="0" role="link" aria-label="Login" onclick="window.location.href='/login/'">Login</li>
+        <li tabindex="0" role="link" aria-label="Signup" onclick="window.location.href='/signup/'">Signup</li>
+      {% endif %}
     </ul>
   </nav>
 
+  {% if messages %}
+    <div style="max-width:900px;margin:6rem auto 1rem;padding:0 1rem;">
+      {% for message in messages %}
+        <div style="background:#1a1a1a;border:1px solid #333;color:#fff;padding:0.75rem 1rem;margin-bottom:0.5rem;">
+          {{ message }}
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+
   {% block content %}
-  <!-- Page-specific content goes here -->
   {% endblock %}
 
   <footer>

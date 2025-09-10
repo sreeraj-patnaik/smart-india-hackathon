@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Login - MAPSS{% endblock %}
+
+{% block content %}
+<section class="auth-wrapper">
+  <h2>Login</h2>
+  <form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+
+    <div class="auth-grid">
+      <div class="full">
+        <label for="id_username">Username</label>
+        <input type="text" name="username" id="id_username" autocomplete="username" required />
+      </div>
+
+      <div class="full">
+        <label for="id_password">Password</label>
+        <input type="password" name="password" id="id_password" autocomplete="current-password" required />
+      </div>
+    </div>
+
+    <button type="submit" class="btn-primary">Login</button>
+
+    <p>Don’t have an account? <a href="{% url 'signup' %}">Sign Up</a></p>
+  </form>
+</section>
+{% endblock %}

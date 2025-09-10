@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% block title %}Sign Up - MAPSS{% endblock %}
+
+{% block content %}
+<section class="auth-wrapper">
+  <h2>Sign Up</h2>
+  <form method="post" action="{% url 'signup' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="auth-grid">
+      <div class="full">
+        <label for="id_photo">Profile Photo</label>
+        <input type="file" name="photo" id="id_photo" accept="image/*" />
+      </div>
+
+      <div>
+        <label for="id_fullname">Full Name</label>
+        <input type="text" name="fullname" id="id_fullname" autocomplete="name" required />
+      </div>
+
+      <div>
+        <label for="id_username">Username</label>
+        <input type="text" name="username" id="id_username" autocomplete="username" required />
+      </div>
+
+      <div>
+        <label for="id_email">Email</label>
+        <input type="email" name="email" id="id_email" autocomplete="email" required />
+      </div>
+
+      <div>
+        <label for="id_dob">Date of Birth</label>
+        <input type="date" name="dob" id="id_dob" />
+      </div>
+
+      <div>
+        <label for="id_gender">Gender</label>
+        <select name="gender" id="id_gender" required>
+          <option value="" disabled selected>Select</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+          <option value="prefer_not_say">Prefer not to say</option>
+        </select>
+      </div>
+
+      <div class="full">
+        <label for="id_password1">Password</label>
+        <input type="password" name="password1" id="id_password1" autocomplete="new-password" required />
+      </div>
+
+      <div class="full">
+        <label for="id_password2">Confirm Password</label>
+        <input type="password" name="password2" id="id_password2" autocomplete="new-password" required />
+      </div>
+    </div>
+
+    <fieldset>
+      <legend>College Details</legend>
+      <div class="auth-grid">
+        <div>
+          <label for="id_college_name">College Name</label>
+          <input type="text" name="college_name" id="id_college_name" />
+        </div>
+        <div>
+          <label for="id_college_type">College Type</label>
+          <input type="text" name="college_type" id="id_college_type" />
+        </div>
+        <div>
+          <label for="id_college_pin">PIN Code</label>
+          <input type="text" name="college_pin" id="id_college_pin" />
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Address</legend>
+      <div class="auth-grid">
+        <div>
+          <label for="id_city">City</label>
+          <input type="text" name="city" id="id_city" />
+        </div>
+        <div>
+          <label for="id_state">State</label>
+          <input type="text" name="state" id="id_state" />
+        </div>
+        <div>
+          <label for="id_country">Country</label>
+          <input type="text" name="country" id="id_country" />
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Health</legend>
+      <div class="auth-grid">
+        <div class="full">
+          <label for="id_health_conditions">Past Health Conditions</label>
+          <textarea name="health_conditions" id="id_health_conditions" rows="3"></textarea>
+        </div>
+      </div>
+    </fieldset>
+
+    <button type="submit" class="btn-primary">Sign Up</button>
+    <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+  </form>
+</section>
+{% endblock %}
