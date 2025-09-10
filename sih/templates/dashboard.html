@@ -1,660 +1,256 @@
-{}
-{% load static %}
-  <style>
-    /* Reset and base styles */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #0f0f0f;
-      color: #eaeaea;
-      line-height: 1.6;
-    }
-    main {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1rem;
-    }
+{% extends "base.html" %}
 
-    /* Hero Section */
-    .hero {
-      height: 50vh;
-      min-height: 320px;
-      background: #141414;
-      border: 1px solid #2a2a2a;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-      padding: 2rem;
-      margin-bottom: 2rem;
-    }
-    .hero .profile-pic {
-      width: 140px;
-      height: 140px;
-      border: 1px solid #2a2a2a;
-      border-radius: 8px;
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #111;
-      color: #aaa;
-      font-size: 4rem;
-    }
-    .hero .profile-pic img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 8px;
-    }
-    .hero .profile-info {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      height: 100%;
-    }
-    .hero h1 {
-      font-size: 2.5rem;
-      letter-spacing: 1px;
-      color: #fff;
-    }
-    .hero .email {
-      color: #cfcfcf;
-      font-size: 1rem;
-      margin: 0.25rem 0 1.5rem;
-    }
-    .hero nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-bottom: 1rem;
-    }
-    .hero nav a {
-      color: #ffce73;
-      text-decoration: none;
-      border: 1px solid #2a2a2a;
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
-      font-weight: 600;
-      transition: background-color 0.3s;
-    }
-    .hero nav a:hover {
-      background-color: #ffce73;
-      color: #141414;
-    }
-    .hero .privacy-toggle {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      color: #eaeaea;
-      font-weight: 600;
-    }
-    .hero .privacy-toggle strong {
-      color: #ffce73;
-    }
-    .hero button {
-      background: #ffce73;
-      border: none;
-      color: #141414;
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-    .hero button:hover {
-      background: #e6b85c;
-    }
-    .hero form {
-      margin-top: 1rem;
-    }
+{% block title %}Dashboard - MAPSS{% endblock %}
 
-    /* Carousel Section */
-    .carousel {
-      margin-bottom: 2rem;
-      background: #171717;
-      border: 1px solid #2a2a2a;
-      border-radius: 8px;
-      overflow: hidden;
-      height: 250px;
-      position: relative;
-    }
-    .carousel-inner {
-      display: flex;
-      transition: transform 0.5s ease;
-      height: 100%;
-    }
-    .carousel-item {
-      min-width: 100%;
-      padding: 1.5rem;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      background: #1a1a1a;
-      color: #eaeaea;
-    }
-    .carousel-item h3 {
-      color: #ffce73;
-      margin-bottom: 0.5rem;
-      letter-spacing: 0.5px;
-    }
-    .carousel-item p {
-      color: #cfcfcf;
-      font-size: 1.1rem;
-    }
-    .carousel-controls {
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      transform: translateY(-50%);
-      pointer-events: none;
-    }
-    .carousel-controls button {
-      pointer-events: all;
-      background: rgba(255, 206, 115, 0.8);
-      border: none;
-      color: #141414;
-      font-weight: 700;
-      font-size: 1.5rem;
-      padding: 0.25rem 0.75rem;
-      cursor: pointer;
-      border-radius: 4px;
-      transition: background-color 0.3s;
-    }
-    .carousel-controls button:hover {
-      background: #e6b85c;
-    }
-
-    /* Tests Section */
-    #tests {
-      margin-bottom: 2rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1rem;
-    }
-    #tests a {
-      text-decoration: none;
-      display: block;
-    }
-    #tests .test-card {
-      background: #171717;
-      border: 1px solid #2a2a2a;
-      border-radius: 8px;
-      padding: 1rem;
-      height: 160px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: background-color 0.3s;
-    }
-    #tests .test-card:hover {
-      background: #222;
-    }
-    #tests .test-card header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #242424;
-      padding-bottom: 0.5rem;
-      margin-bottom: 0.5rem;
-    }
-    #tests .test-card header h3 {
-      color: #ffce73;
-      margin: 0;
-      letter-spacing: 0.5px;
-    }
-    #tests .test-card header small {
-      color: #cfcfcf;
-    }
-    #tests .test-card p {
-      color: #cfcfcf;
-      font-size: 0.95rem;
-    }
-
-    /* Forms Section */
-    .forms-section {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      margin-bottom: 2rem;
-    }
-    @media (max-width: 768px) {
-      .forms-section {
-        grid-template-columns: 1fr;
-      }
-    }
-    .form-card {
-      background: #171717;
-      border: 1px solid #2a2a2a;
-      border-radius: 8px;
-      padding: 1rem;
-      display: flex;
-      flex-direction: column;
-      height: 400px;
-    }
-    .form-card header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #242424;
-      padding-bottom: 0.5rem;
-      margin-bottom: 0.75rem;
-    }
-    .form-card header h3 {
-      color: #ffce73;
-      margin: 0;
-      letter-spacing: 0.5px;
-    }
-    .form-card header small {
-      color: #cfcfcf;
-    }
-    .form-card input, .form-card textarea {
-      width: 100%;
-      padding: 0.5rem;
-      border: 1px solid #2a2a2a;
-      border-radius: 4px;
-      background: #222;
-      color: #eaeaea;
-      margin-bottom: 0.5rem;
-    }
-    .form-card button {
-      background: #ffce73;
-      border: none;
-      color: #141414;
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: background-color 0.3s;
-      align-self: flex-end;
-    }
-    .form-card button:hover {
-      background: #e6b85c;
-    }
-
-    /* Chat specific */
-    #chat_box {
-      flex: 1;
-      border: 1px solid #222;
-      background: #111;
-      padding: 0.75rem;
-      border-radius: 4px;
-      overflow-y: auto;
-      margin-bottom: 0.5rem;
-    }
-    #chat_box > div {
-      margin-bottom: 0.5rem;
-      display: flex;
-      gap: 0.5rem;
-    }
-    #chat_box .time {
-      min-width: 50px;
-      color: #888;
-      font-size: 0.8rem;
-    }
-    #chat_box .message-content strong {
-      color: #fff;
-    }
-    #chat_box .message-content span {
-      color: #cfcfcf;
-    }
-
-    /* Forum specific */
-    #forum form {
-      margin-bottom: 1rem;
-    }
-    #forum p {
-      color: #cfcfcf;
-      font-size: 0.9rem;
-      margin: 0.5rem 0;
-    }
-    #forum h4 {
-      color: #ffce73;
-      margin: 1rem 0 0.5rem;
-    }
-    #forum .your-posts, #forum_feed {
-      background: #111;
-      border: 1px solid #222;
-      border-radius: 4px;
-      padding: 0.75rem;
-      margin-bottom: 1rem;
-      overflow-y: auto;
-    }
-    #forum .post-item {
-      margin-bottom: 0.5rem;
-      border-bottom: 1px solid #242424;
-      padding-bottom: 0.5rem;
-    }
-    #forum .post-item:last-child {
-      border-bottom: none;
-    }
-    #forum .post-item strong {
-      color: #ffce73;
-    }
-    #forum .post-item .meta {
-      color: #cfcfcf;
-      font-size: 0.9rem;
-      margin-top: 0.25rem;
-    }
-    #forum .post-item .content {
-      color: #cfcfcf;
-      margin-top: 0.25rem;
-    }
-
-    /* Reports Section */
-    .reports {
-      background: #171717;
-      border: 1px solid #2a2a2a;
-      border-radius: 8px;
-      padding: 1rem;
-      margin-bottom: 2rem;
-      overflow-x: auto;
-    }
-    .reports header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #242424;
-      padding-bottom: 0.5rem;
-      margin-bottom: 0.75rem;
-    }
-    .reports header h3 {
-      color: #ffce73;
-      margin: 0;
-      letter-spacing: 0.5px;
-    }
-    .reports header small {
-      color: #cfcfcf;
-    }
-    .reports table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    .reports th, .reports td {
-      padding: 0.75rem;
-      border-bottom: 1px solid #242424;
-      text-align: left;
-    }
-    .reports th {
-      color: #cfcfcf;
-      font-weight: 600;
-    }
-    .reports tbody tr:last-child td {
-      border-bottom: none;
-    }
-
-    /* Doctors Section */
-    #doctors {
-      background: #171717;
-      border: 1px solid #2a2a2a;
-      border-radius: 8px;
-      padding: 1rem;
-      margin-bottom: 2rem;
-    }
-    #doctors h3 {
-      color: #ffce73;
-      margin-bottom: 1rem;
-      letter-spacing: 0.5px;
-    }
-    #doctors .doctor {
-      background: #151515;
-      border: 1px solid #242424;
-      border-radius: 6px;
-      padding: 1rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 0.75rem;
-    }
-    #doctors .doctor:last-child {
-      margin-bottom: 0;
-    }
-    #doctors .doctor .info {
-      flex: 1;
-    }
-    #doctors .doctor strong {
-      color: #fff;
-      margin-right: 0.5rem;
-    }
-    #doctors .doctor .specialty {
-      color: #ffce73;
-    }
-    #doctors .doctor .organization {
-      color: #cfcfcf;
-      font-size: 0.9rem;
-      margin-top: 0.25rem;
-    }
-    #doctors .doctor .contact {
-      color: #cfcfcf;
-      font-size: 0.9rem;
-      white-space: nowrap;
-    }
-  </style>
-</head>
-<body>
-  <main>
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="profile-pic">
-        <img src="https://placehold.co/140x140" alt="User profile picture with face centered and blurred background" />
-      </div>
-      <div class="profile-info">
-        <div>
-          <h1>{{ request.user.first_name|default:request.user.username }}</h1>
-          <div class="email">{{ request.user.email }}</div>
-          <nav>
-            <a href="#chat">Chat</a>
-            <a href="#tests-info">About Tests</a>
-            <a href="#tests">Take Tests</a>
-            <a href="#doctors">Doctors</a>
-            <a href="#forum">Forum</a>
-          </nav>
-        </div>
-        <form method="post" action="{% url 'toggle_privacy' %}">
-          {% csrf_token %}
-          <div class="privacy-toggle">
-            <span>Privacy:</span>
-            <strong>{{ is_anon|yesno:"Anonymous,Public" }}</strong>
-            <button type="submit" class="btn-primary">Toggle</button>
+{% block content %}
+<main>
+  <!-- HERO: Profile and quick links -->
+  <form method="post" action="{% url 'toggle_privacy' %}" style="max-width:1200px;width:100%;margin:0 auto 14px;">
+    {% csrf_token %}
+    <div style="background:#141414;border:1px solid #2a2a2a;padding:18px;">
+      <div style="display:flex;gap:16px;align-items:center;">
+        {% if user_profile and user_profile.photo %}
+          <img src="{{ user_profile.photo.url }}" alt="{{ request.user.username }}" style="width:84px;height:84px;object-fit:cover;border:1px solid #2a2a2a;">
+        {% else %}
+          <div style="width:84px;height:84px;display:flex;align-items:center;justify-content:center;border:1px solid #2a2a2a;background:#111;color:#aaa;font-size:1.6rem;">{{ request.user.username|slice:":1"|upper }}</div>
+        {% endif %}
+        <div style="flex:1;display:flex;justify-content:space-between;gap:12px;">
+          <div>
+            <h2 style="margin:0;color:#fff;">{{ request.user.first_name|default:request.user.username }}</h2>
+            <div style="color:#cfcfcf;margin-top:2px;">{{ request.user.email }}</div>
+            <div style="display:flex;gap:8px;margin-top:10px;">
+              <a href="#chat" style="color:#ffce73;text-decoration:none;border:1px solid #2a2a2a;padding:6px 10px;">Chat</a>
+              <a href="#tests-info" style="color:#ffce73;text-decoration:none;border:1px solid #2a2a2a;padding:6px 10px;">About Tests</a>
+              <a href="#tests" style="color:#ffce73;text-decoration:none;border:1px solid #2a2a2a;padding:6px 10px;">Take Tests</a>
+              <a href="#doctors" style="color:#ffce73;text-decoration:none;border:1px solid #2a2a2a;padding:6px 10px;">Doctors</a>
+              <a href="#forum" style="color:#ffce73;text-decoration:none;border:1px solid #2a2a2a;padding:6px 10px;">Forum</a>
+            </div>
           </div>
-        </form>
-      </div>
-    </section>
-
-    <!-- Carousel Section -->
-    <section class="carousel">
-      <div class="carousel-inner" id="carousel-inner">
-        <div class="carousel-item">
-          <h3>PHQ-9</h3>
-          <p>9 questions assessing depressive symptoms over the last 2 weeks.</p>
-        </div>
-        <div class="carousel-item">
-          <h3>GAD-7</h3>
-          <p>7 questions screening for generalized anxiety symptoms.</p>
-        </div>
-        <div class="carousel-item">
-          <h3>Privacy</h3>
-          <p>Reports save as Public or Anonymous based on your toggle (anon ID kept).</p>
-        </div>
-        <div class="carousel-item">
-          <h3>Usage</h3>
-          <p>Screening only; consult a professional for diagnosis.</p>
+          <div style="display:flex;align-items:center;gap:8px;white-space:nowrap;">
+            <span style="color:#eaeaea;">Privacy:</span>
+            <strong style="color:#ffce73;">{{ is_anon|yesno:"Anonymous,Public" }}</strong>
+            <button type="submit" class="btn-primary" style="max-width:none;width:auto;padding:8px 12px;border-radius:0;">Toggle</button>
+          </div>
         </div>
       </div>
-      <div class="carousel-controls">
-        <button id="carousel-prev">&#10094;</button>
-        <button id="carousel-next">&#10095;</button>
+    </div>
+  </form>
+
+  <!-- ABOUT TESTS (vertical) -->
+  <div id="tests-info" style="max-width:900px;width:100%;margin:0 auto 14px;background:#171717;border:1px solid #2a2a2a;padding:12px;">
+    <h3 style="color:#ffce73;margin:0 0 8px;letter-spacing:0.5px;">ABOUT TESTS</h3>
+    <div style="display:grid;grid-template-columns:1fr;gap:8px;">
+      <div style="border:1px solid #242424;padding:12px;background:#151515;color:#eaeaea;">
+        <strong>PHQ-9</strong>
+        <div style="color:#cfcfcf;margin-top:6px;">9 questions assessing depressive symptoms over the last 2 weeks.</div>
       </div>
-    </section>
-
-    <!-- Tests Section -->
-    <section id="tests">
-      <a href="#" class="test-card">
-        <header>
-          <h3>PHQ-9</h3>
-          <small>Screening</small>
-        </header>
-        <p>Assess depression symptoms. Saved as Anonymous.</p>
-      </a>
-      <a href="#" class="test-card">
-        <header>
-          <h3>GAD-7</h3>
-          <small>Screening</small>
-        </header>
-        <p>Assess anxiety symptoms. Saved as Anonymous.</p>
-      </a>
-    </section>
-
-    <!-- Forms Section -->
-    <section class="forms-section">
-      <!-- Chat -->
-      <div id="chat" class="form-card">
-        <header>
-          <h3>AI Chat</h3>
-          <small>Press Enter to send</small>
-        </header>
-        <div id="chat_box"></div>
-        <input id="id_chat" placeholder="Type your message..." />
-        <button type="button" id="ws_send">Send</button>
+      <div style="border:1px solid #242424;padding:12px;background:#151515;color:#eaeaea;">
+        <strong>GAD-7</strong>
+        <div style="color:#cfcfcf;margin-top:6px;">7 questions screening for generalized anxiety symptoms.</div>
       </div>
-
-      <!-- Forum -->
-      <div id="forum" class="form-card">
-        <header>
-          <h3>Forum</h3>
-          <small>Share with peers</small>
-        </header>
-        <form>
-          <label for="id_title">Title</label>
-          <input id="id_title" placeholder="Share a thought or question" />
-          <label for="id_content">Content</label>
-          <textarea id="id_content" rows="4" placeholder="Write your message"></textarea>
-          <p>Posting as Anonymous</p>
-          <button type="button" id="ws_post">Post</button>
-        </form>
-        <div class="your-posts"></div>
-        <h4>Live Feed</h4>
-        <div id="forum_feed"></div>
+      <div style="border:1px solid #242424;padding:12px;background:#151515;color:#eaeaea;">
+        <strong>Privacy</strong>
+        <div style="color:#cfcfcf;margin-top:6px;">Reports save as Public or Anonymous based on your toggle (anon ID kept).</div>
       </div>
-    </section>
+      <div style="border:1px solid #242424;padding:12px;background:#151515;color:#eaeaea;">
+        <strong>Usage</strong>
+        <div style="color:#cfcfcf;margin-top:6px;">Screening only; consult a professional for diagnosis.</div>
+      </div>
+    </div>
+  </div>
 
-    <!-- Reports Section -->
-    <section class="reports">
-      <header>
-        <h3>Reports</h3>
-        <small>Recent</small>
-      </header>
-      <table>
+  <!-- SECTION: Chat -->
+  <div id="chat" style="max-width:1200px;width:100%;margin:0 auto 14px;background:#171717;border:1px solid #2a2a2a;padding:12px;">
+    <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #242424;padding-bottom:8px;margin-bottom:8px;">
+      <h3 style="color:#ffce73;margin:0;letter-spacing:0.5px;">AI CHAT</h3>
+      <small style="color:#cfcfcf;">Press Enter to send</small>
+    </div>
+    <div id="chat_box" style="height:320px;overflow:auto;border:1px solid #222;padding:8px;margin-bottom:8px;background:#111;">
+      {% for m in chats %}
+        <div style="margin-bottom:6px;color:#eaeaea;display:flex;gap:8px;">
+          <div style="min-width:58px;color:#888;font-size:0.8rem;">{{ m.created_at|date:"H:i" }}</div>
+          <div style="flex:1;">
+            <strong>{{ m.is_user|yesno:"You,AI" }}{% if m.is_anonymous %} (Anon){% endif %}</strong>
+            <div>{{ m.message }}</div>
+          </div>
+        </div>
+      {% empty %}
+        <div style="color:#aaa;">No messages yet. Say hello!</div>
+      {% endfor %}
+    </div>
+    <div class="auth-grid">
+      <div class="full">
+        <label for="id_chat">Message</label>
+        <input id="id_chat" name="message" placeholder="Type your message..." />
+      </div>
+    </div>
+    <button type="button" id="ws_send" class="btn-primary">Send</button>
+  </div>
+
+  <!-- SECTION: Take tests (full width stacked) -->
+  <div id="tests" style="max-width:900px;width:100%;margin:0 auto 14px;display:grid;grid-template-columns:1fr;gap:10px;">
+    <a href="{% url 'phq9' %}" style="text-decoration:none;">
+      <div style="background:#171717;border:1px solid #2a2a2a;padding:12px;color:#fff;">
+        <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #242424;padding-bottom:6px;margin-bottom:6px;">
+          <h3 style="color:#ffce73;margin:0;letter-spacing:0.5px;">PHQ-9</h3>
+          <small style="color:#cfcfcf;">Screening</small>
+        </div>
+        <p style="color:#cfcfcf;">Assess depression symptoms. Saved as {{ is_anon|yesno:"Anonymous,Public" }}{% if is_anon %} (ID: {{ anon_id }}){% endif %}.</p>
+      </div>
+    </a>
+    <a href="{% url 'gad7' %}" style="text-decoration:none;">
+      <div style="background:#171717;border:1px solid #2a2a2a;padding:12px;color:#fff;">
+        <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #242424;padding-bottom:6px;margin-bottom:6px;">
+          <h3 style="color:#ffce73;margin:0;letter-spacing:0.5px;">GAD-7</h3>
+          <small style="color:#cfcfcf;">Screening</small>
+        </div>
+        <p style="color:#cfcfcf;">Assess anxiety symptoms. Saved as {{ is_anon|yesno:"Anonymous,Public" }}{% if is_anon %} (ID: {{ anon_id }}){% endif %}.</p>
+      </div>
+    </a>
+  </div>
+
+  <!-- SECTION: Reports -->
+  <div style="max-width:900px;width:100%;margin:0 auto 14px;background:#171717;border:1px solid #2a2a2a;padding:12px;">
+    <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #242424;padding-bottom:6px;margin-bottom:6px;">
+      <h3 style="color:#ffce73;margin:0;letter-spacing:0.5px;">REPORTS</h3>
+      <small style="color:#cfcfcf;">Recent</small>
+    </div>
+    <div style="overflow:auto;">
+      <table style="width:100%;border-collapse:collapse;color:#eaeaea;">
         <thead>
-          <tr>
-            <th>Type</th>
-            <th>Score</th>
-            <th>When</th>
-            <th>Mode</th>
+          <tr style="text-align:left;color:#cfcfcf;">
+            <th style="padding:8px;border-bottom:1px solid #242424;">Type</th>
+            <th style="padding:8px;border-bottom:1px solid #242424;">Score</th>
+            <th style="padding:8px;border-bottom:1px solid #242424;">When</th>
+            <th style="padding:8px;border-bottom:1px solid #242424;">Mode</th>
           </tr>
         </thead>
         <tbody>
-          <!-- Dummy data -->
-          <tr><td>PHQ-9</td><td>15</td><td>2023-10-01 10:00</td><td>Anon</td></tr>
+          {% for r in reports %}
+            <tr>
+              <td style="padding:8px;border-bottom:1px solid #242424;">{{ r.test_type }}</td>
+              <td style="padding:8px;border-bottom:1px solid #242424;">{{ r.score }}</td>
+              <td style="padding:8px;border-bottom:1px solid #242424;">{{ r.created_at|date:"M d, Y H:i" }}</td>
+              <td style="padding:8px;border-bottom:1px solid #242424;">{% if r.is_anonymous %}Anon ({{ r.anon_id|slice:":6" }}){% else %}Public{% endif %}</td>
+            </tr>
+          {% empty %}
+            <tr><td colspan="4" style="padding:8px;color:#aaa;">No reports yet.</td></tr>
+          {% endfor %}
         </tbody>
       </table>
-    </section>
+    </div>
+  </div>
 
-    <!-- Doctors Section -->
-    <section id="doctors">
-      <h3>Doctors</h3>
-      <div class="doctor">
-        <div class="info">
-          <div><strong>Dr. John Doe</strong><span class="specialty"> — Psychiatry</span></div>
-          <div class="organization">Mental Health Clinic, New York</div>
+  <!-- DOCTORS (vertical list) -->
+  <div id="doctors" style="max-width:900px;width:100%;margin:0 auto 14px;background:#171717;border:1px solid #2a2a2a;padding:12px;">
+    <h3 style="color:#ffce73;margin:0 0 8px;letter-spacing:0.5px;">DOCTORS</h3>
+    <div style="display:grid;grid-template-columns:1fr;gap:8px;">
+      {% for d in doctors %}
+        <div style="border:1px solid #242424;padding:12px;background:#151515;color:#eaeaea;display:flex;justify-content:space-between;gap:8px;">
+          <div>
+            <strong>{{ d.name }}</strong>{% if d.specialty %}<span style="color:#ffce73;"> — {{ d.specialty }}</span>{% endif %}
+            <div style="color:#cfcfcf;">{{ d.organization }}{% if d.city %}, {{ d.city }}{% endif %}</div>
+          </div>
+          <div style="white-space:nowrap;color:#cfcfcf;">{% if d.phone %}📞 {{ d.phone }}{% endif %}{% if d.email %} &nbsp;✉️ {{ d.email }}{% endif %}</div>
         </div>
-        <div class="contact">Phone: 123-456-7890</div>
+      {% empty %}
+        <div style="color:#aaa;">No contacts available yet.</div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div id="forum" style="max-width:900px;width:100%;margin:0 auto;background:#171717;border:1px solid #2a2a2a;padding:12px;">
+    <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #242424;padding-bottom:6px;margin-bottom:6px;">
+      <h3 style="color:#ffce73;margin:0;letter-spacing:0.5px;">FORUM</h3>
+      <small style="color:#cfcfcf;">Share with peers</small>
+    </div>
+    <div class="auth-grid">
+      <div class="full">
+        <label for="id_title">Title</label>
+        <input id="id_title" name="title" placeholder="Share a thought or question" />
       </div>
-    </section>
-  </main>
+      <div class="full">
+        <label for="id_content">Content</label>
+        <textarea id="id_content" name="content" rows="4" placeholder="Write your message"></textarea>
+      </div>
+    </div>
+    <p style="color:#cfcfcf;margin-top:0.5rem;">Posting as {{ is_anon|yesno:"Anonymous,Public" }}{% if is_anon %} (ID: {{ anon_id }}){% endif %}</p>
+    <button type="button" id="ws_post" class="btn-primary" style="border-radius:0;">Post</button>
 
-  <script>
-    // Carousel functionality
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.carousel-item');
-    const totalSlides = slides.length;
-    const carouselInner = document.getElementById('carousel-inner');
-    const nextBtn = document.getElementById('carousel-next');
-    const prevBtn = document.getElementById('carousel-prev');
+    <div style="margin-top:12px;">
+      <h4 style="color:#ffce73;margin:0 0 6px;">Your Posts</h4>
+      {% for p in posts %}
+        <div style="padding:8px 0;border-bottom:1px solid #242424;color:#eaeaea;">
+          <strong>{{ p.title }}</strong> — {{ p.created_at|date:"M d, Y H:i" }} {% if p.is_anonymous %}(Anon ID: {{ p.anon_id }}){% endif %}
+          <div style="color:#cfcfcf;margin-top:0.25rem;">{{ p.content }}</div>
+        </div>
+      {% empty %}
+        <div style="color:#aaa;">No posts yet.</div>
+      {% endfor %}
+    </div>
+    <div style="margin-top:12px;">
+      <h4 style="color:#ffce73;margin:0 0 6px;">Live Feed</h4>
+      <div id="forum_feed" style="max-height:240px;overflow:auto;border:1px solid #222;padding:8px;background:#111;"></div>
+    </div>
+  </div>
+</main>
+{% endblock %}
 
-    function showSlide(index) {
-      if (index >= totalSlides) currentSlide = 0;
-      if (index < 0) currentSlide = totalSlides - 1;
-      carouselInner.style.transform = `translateX(-${currentSlide * 100}%)`;
-    }
+<script>
+  (function(){
+    const isAnon = {{ is_anon|yesno:'true,false' }};
+    const anonId = "{{ anon_id|default:'' }}";
 
-    nextBtn.addEventListener('click', () => {
-      currentSlide++;
-      showSlide(currentSlide);
-    });
-
-    prevBtn.addEventListener('click', () => {
-      currentSlide--;
-      showSlide(currentSlide);
-    });
-
-    // Auto slide every 5 seconds
-    setInterval(() => {
-      currentSlide++;
-      showSlide(currentSlide);
-    }, 5000);
-
-    // Chat functionality (simplified for demo)
+    // Chat WS
+    const chatSocket = new WebSocket((location.protocol === 'https:' ? 'wss://' : 'ws://') + window.location.host + '/ws/chat/');
     const chatInput = document.getElementById('id_chat');
     const sendBtn = document.getElementById('ws_send');
     const chatBox = document.getElementById('chat_box');
-
-    function appendChat(sender, message) {
-      const div = document.createElement('div');
-      div.innerHTML = `<div class="time">${new Date().toLocaleTimeString()}</div><div class="message-content"><strong>${sender}</strong><br><span>${message}</span></div>`;
-      chatBox.appendChild(div);
+    function appendChat(sender, message){
+      const d = document.createElement('div');
+      d.style.marginBottom = '6px';
+      d.style.color = '#eaeaea';
+      d.innerHTML = '<strong>' + sender + '</strong>: <span>' + (message||'') + '</span>';
+      chatBox.appendChild(d);
       chatBox.scrollTop = chatBox.scrollHeight;
     }
-
-    sendBtn.addEventListener('click', () => {
+    function sendChat(){
       const msg = chatInput.value.trim();
-      if (msg) {
-        appendChat('You', msg);
-        chatInput.value = '';
-        // Simulate AI response
-        setTimeout(() => appendChat('AI', 'How can I help you today?'), 1000);
-      }
-    });
+      if(!msg || chatSocket.readyState !== WebSocket.OPEN) return;
+      chatSocket.send(JSON.stringify({ message: msg, is_anonymous: isAnon, anon_id: anonId }));
+      chatInput.value='';
+    }
+    sendBtn.addEventListener('click', sendChat);
+    chatInput.addEventListener('keydown', function(e){ if(e.key==='Enter'){ e.preventDefault(); sendChat(); } });
+    chatSocket.onmessage = function(ev){
+      try { const data = JSON.parse(ev.data); appendChat(data.sender === 'you' ? 'You' : 'AI', data.message); } catch(e){}
+    };
 
-    chatInput.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') sendBtn.click();
-    });
-
-    // Forum functionality (simplified)
+    // Forum WS
+    const forumSocket = new WebSocket((location.protocol === 'https:' ? 'wss://' : 'ws://') + window.location.host + '/ws/forum/');
     const postBtn = document.getElementById('ws_post');
-    const forumFeed = document.getElementById('forum_feed');
-
-    postBtn.addEventListener('click', () => {
-      const title = document.getElementById('id_title').value.trim();
-      const content = document.getElementById('id_content').value.trim();
-      if (title && content) {
-        const div = document.createElement('div');
-        div.innerHTML = `<strong>${title}</strong> — User<div class="content">${content}</div>`;
-        forumFeed.appendChild(div);
-        document.getElementById('id_title').value = '';
-        document.getElementById('id_content').value = '';
-      }
+    postBtn.addEventListener('click', function(){
+      const t = document.getElementById('id_title').value.trim();
+      const c = document.getElementById('id_content').value.trim();
+      if(!t || !c || forumSocket.readyState !== WebSocket.OPEN) return;
+      forumSocket.send(JSON.stringify({ title: t, content: c, is_anonymous: isAnon, anon_id: anonId }));
+      document.getElementById('id_title').value = '';
+      document.getElementById('id_content').value = '';
     });
-  </script>
-</body>
-</html>
-</content>
-</create_file>
+    forumSocket.onmessage = function(ev){
+      try {
+        const data = JSON.parse(ev.data);
+        const box = document.getElementById('forum_feed');
+        if (!box) return;
+        const el = document.createElement('div');
+        el.style.marginBottom = '0.5rem';
+        el.style.color = '#eaeaea';
+        const author = data.author || (data.is_anonymous ? ('Anon-' + (data.anon_id||'').slice(0,6)) : 'User');
+        el.innerHTML = '<strong>' + (data.title||'') + '</strong> — <span style="color:#cfcfcf;">' + author + '</span><div style="color:#cfcfcf; margin-top:0.25rem;">' + (data.content||'') + '</div>';
+        box.prepend(el);
+      } catch (e) { }
+    };
+  })();
+</script>
+
+
