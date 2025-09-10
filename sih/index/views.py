@@ -3,6 +3,9 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from django.contrib.auth.models import User
 from .models import Profile
+from django.contrib.auth.decorators import login_required
+from django.utils.crypto import get_random_string
+from .models import TestReport, ChatMessage, ForumPost, DoctorContact
 
 # Create your views here.
 def home(request):
@@ -93,3 +96,111 @@ def logout(request):
         auth_logout(request)
         messages.info(request, "You have been logged out.")
     return redirect("home")
+
+
+def _get_privacy_flags(request):
+    is_anon = bool(request.session.get("privacy_is_anon", False))
+    anon_id = request.session.get("privacy_anon_id")
+    if is_anon and not anon_id:
+        anon_id = get_random_string(16)
+        request.session["privacy_anon_id"] = anon_id
+    return is_anon, anon_id
+
+
+@login_required
+def dashboard(request):
+    is_anon, anon_id = _get_privacy_flags(request)
+    reports = TestReport.objects.filter(user=request.user).order_by("-created_at")[:10]
+    posts = ForumPost.objects.filter(user=request.user).order_by("-created_at")[:5]
+    chats = ChatMessage.objects.filter(user=request.user).order_by("-created_at")[:10]
+    doctors = DoctorContact.objects.all()[:12]
+    return render(request, "dashboard.html", {
+        "is_anon": is_anon,
+        "anon_id": anon_id,
+        "reports": reports,
+        "posts": posts,
+        "chats": chats,
+        "doctors": doctors,
+    })
+
+
+@login_required
+def toggle_privacy(request):
+    if request.method == "POST":
+        current = bool(request.session.get("privacy_is_anon", False))
+        request.session["privacy_is_anon"] = not current
+        if not current and not request.session.get("privacy_anon_id"):
+            request.session["privacy_anon_id"] = get_random_string(16)
+        messages.info(request, f"Privacy set to {'Anonymous' if not current else 'Public'}.")
+    return redirect("dashboard")
+
+
+@login_required
+def phq9(request):
+    is_anon, anon_id = _get_privacy_flags(request)
+    if request.method == "POST":
+        answers = {f"q{i}": int(request.POST.get(f"q{i}", 0)) for i in range(1, 10)}
+        score = sum(answers.values())
+        TestReport.objects.create(
+            user=request.user, test_type="PHQ9", score=score,
+            raw_answers=answers, is_anonymous=is_anon, anon_id=anon_id or ""
+        )
+        messages.success(request, f"PHQ-9 submitted. Score: {score}")
+        return redirect("dashboard")
+    return render(request, "tests/phq9.html")
+
+
+@login_required
+def gad7(request):
+    is_anon, anon_id = _get_privacy_flags(request)
+    if request.method == "POST":
+        answers = {f"q{i}": int(request.POST.get(f"q{i}", 0)) for i in range(1, 8)}
+        score = sum(answers.values())
+        TestReport.objects.create(
+            user=request.user, test_type="GAD7", score=score,
+            raw_answers=answers, is_anonymous=is_anon, anon_id=anon_id or ""
+        )
+        messages.success(request, f"GAD-7 submitted. Score: {score}")
+        return redirect("dashboard")
+    return render(request, "tests/gad7.html")
+
+
+@login_required
+def chat(request):
+    is_anon, anon_id = _get_privacy_flags(request)
+    if request.method == "POST":
+        text = request.POST.get("message", "").strip()
+        if text:
+            ChatMessage.objects.create(
+                user=request.user, message=text, is_user=True,
+                is_anonymous=is_anon, anon_id=anon_id or ""
+            )
+            # Simple AI echo/placeholder
+            ChatMessage.objects.create(
+                user=request.user, message="Thanks for sharing. I'm here to help.", is_user=False,
+                is_anonymous=is_anon, anon_id=anon_id or ""
+            )
+        return redirect("dashboard")
+    return redirect("dashboard")
+
+
+@login_required
+def forum(request):
+    is_anon, anon_id = _get_privacy_flags(request)
+    if request.method == "POST":
+        title = request.POST.get("title", "").strip()
+        content = request.POST.get("content", "").strip()
+        if title and content:
+            ForumPost.objects.create(
+                user=request.user, title=title, content=content,
+                is_anonymous=is_anon, anon_id=anon_id or ""
+            )
+            messages.success(request, "Posted to forum.")
+        return redirect("dashboard")
+    return redirect("dashboard")
+
+
+@login_required
+def doctors(request):
+    doctors = DoctorContact.objects.all()
+    return render(request, "doctors.html", {"doctors": doctors})

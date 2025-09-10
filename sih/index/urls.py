@@ -26,4 +26,11 @@ urlpatterns = [
     path("login/", views.login, name="login"),
     path("signup/", views.signup, name="signup"),
     path("logout/", views.logout, name="logout"),
+    path("dashboard/", views.dashboard, name="dashboard"),
+    path("privacy/toggle/", views.toggle_privacy, name="toggle_privacy"),
+    path("tests/phq9/", views.phq9, name="phq9"),
+    path("tests/gad7/", views.gad7, name="gad7"),
+    path("chat/", views.chat, name="chat"),
+    path("forum/", views.forum, name="forum"),
+    path("doctors/", views.doctors, name="doctors"),
 ]

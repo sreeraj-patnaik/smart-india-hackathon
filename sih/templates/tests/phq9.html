@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}PHQ-9 - MAPSS{% endblock %}
+{% block content %}
+<section class="auth-wrapper">
+  <form method="post" style="max-width:820px;width:100%;">
+    {% csrf_token %}
+    <h2>PHQ-9</h2>
+    <p style="color:#cfcfcf;margin-bottom:1rem;">Over the last two weeks, how often have you been bothered by the following problems?</p>
+    <div class="auth-grid">
+      {% for i in "123456789" %}
+        <div class="full">
+          <label>Q{{ forloop.counter }}</label>
+          <select name="q{{ forloop.counter }}" required>
+            <option value="0">Not at all (0)</option>
+            <option value="1">Several days (1)</option>
+            <option value="2">More than half the days (2)</option>
+            <option value="3">Nearly every day (3)</option>
+          </select>
+        </div>
+      {% endfor %}
+    </div>
+    <button type="submit" class="btn-primary">Submit</button>
+  </form>
+</section>
+{% endblock %}
+
+

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Doctors - MAPSS{% endblock %}
+{% block content %}
+<section class="auth-wrapper">
+  <div style="max-width:960px;width:100%;">
+    <h2>Doctor Contacts</h2>
+    <div style="background:#171717;border:1px solid #2a2a2a;border-radius:12px;padding:1rem;">
+      {% for d in doctors %}
+        <div style="padding:0.5rem 0;border-bottom:1px solid #242424;color:#eaeaea;">
+          <strong>{{ d.name }}</strong>
+          {% if d.specialty %}<span style="color:#ffce73;"> — {{ d.specialty }}</span>{% endif %}
+          <div style="color:#cfcfcf;">{{ d.organization }}{% if d.city %}, {{ d.city }}{% endif %}</div>
+          <div style="color:#cfcfcf;">{% if d.phone %}📞 {{ d.phone }} {% endif %}{% if d.email %} ✉️ {{ d.email }}{% endif %}</div>
+        </div>
+      {% empty %}
+        <div style="color:#aaa;">No contacts available yet.</div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+

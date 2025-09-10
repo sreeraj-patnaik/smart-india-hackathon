@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "channels",
     "index",
 ]
 
@@ -63,12 +64,14 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "index.context_processors.user_profile",
             ],
         },
     },
 ]
 
 WSGI_APPLICATION = "sih.wsgi.application"
+ASGI_APPLICATION = "sih.asgi.application"
 
 
 # Database
@@ -125,3 +128,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+# Channels (dev: in-memory layer)
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer",
+    }
+}

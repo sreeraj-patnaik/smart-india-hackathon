@@ -55,7 +55,7 @@
     }
     nav ul li:hover,
     nav ul li:focus {
-      color: #f0a500;
+      color:#00e5ffff;
       outline: none;
     }
 
@@ -121,7 +121,7 @@
       text-shadow: 0 1px 6px rgba(0,0,0,0.6);
     }
     #hero .btn-primary {
-      background: #f0a500;
+      background:#00e5ffff;
       color: #111;
       font-weight: 600;
       padding: 0.85rem 2.5rem;
@@ -136,7 +136,7 @@
     }
     #hero .btn-primary:hover,
     #hero .btn-primary:focus {
-      background: #ffb733;
+      background: #00e5ffff;
       box-shadow: 0 8px 20px rgba(255, 183, 51, 0.7);
       outline: none;
     }
@@ -285,7 +285,7 @@
       margin-top: 1rem;
       font-weight: 600;
       font-style: italic;
-      color: #f0a500;
+      color:   #00e5ffff;
     }
     .testimonial-controls {
       margin-top: 1.5rem;
@@ -294,7 +294,7 @@
       gap: 1rem;
     }
     .testimonial-controls button {
-      background: #f0a500;
+      background: #00e5ffff;
       border: none;
       border-radius: 50%;
       width: 40px;
@@ -306,25 +306,25 @@
     }
     .testimonial-controls button:hover,
     .testimonial-controls button:focus {
-      background: #ffb733;
+      background: #00e5ffff;
       outline: none;
     }
 
     /* Call to Action Section */
     .cta {
-      background: #f0a500;
+      background: #00e5ffff;
       color: #111;
       padding: 4rem 2rem;
       text-align: center;
       border-radius: 12px;
       margin: 3rem auto;
       max-width: 900px;
-      box-shadow: 0 6px 20px rgba(240, 165, 0, 0.5);
+      box-shadow: 0 6px 20px #00e5ffff;
       transition: box-shadow 0.3s ease;
     }
     .cta:hover,
     .cta:focus-within {
-      box-shadow: 0 8px 30px rgba(255, 183, 51, 0.7);
+      box-shadow: 0 8px 30px #00e5ffff;
     }
     .cta h2 {
       font-size: 2.5rem;
@@ -337,7 +337,7 @@
     }
     .cta a.btn-primary {
       background: #111;
-      color: #f0a500;
+      color: #00e5ffff;
       padding: 1rem 3rem;
       font-size: 1.2rem;
       border-radius: 50px;
@@ -350,7 +350,7 @@
     .cta a.btn-primary:hover,
     .cta a.btn-primary:focus {
       background: #222;
-      color: #ffb733;
+      color: #00e5ffff;
       outline: none;
     }
 
@@ -375,7 +375,7 @@
     }
     footer .social-links a:hover,
     footer .social-links a:focus {
-      color: #f0a500;
+      color: #00e5ffff;
       outline: none;
     }
 
@@ -426,119 +426,147 @@
         font-size: 1rem;
       }
     }
-/* ===== Auth Pages ===== */
+/* ===== Auth Pages (Refined) ===== */
 .auth-wrapper {
-  background: #111;
-  color: #fff;
-  padding: 6rem 5% 8rem;   /* top space for navbar + bottom gap for footer */
-  max-width: 1400px;
-  margin: 0 auto;
-  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  padding: 7rem 1.25rem 5rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background: radial-gradient(1200px 600px at 10% -10%, rgba(240,165,0,0.08), transparent 60%),
+              radial-gradient(1000px 500px at 100% 0%, rgba(102,171,255,0.06), transparent 60%),
+              #111;
 }
 
 .auth-wrapper h2 {
-  font-size: 2rem;
+  font-size: 2.25rem;
   font-weight: 700;
-  margin-bottom: 2.5rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: #f0a500; /* MAPSS accent */
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.5px;
+  color: #fff;
+}
+
+.auth-wrapper form {
+  width: 100%;
+  max-width: 860px;
+  background: rgba(20,20,20,0.7);
+  border: 1px solid rgba(255,255,255,0.07);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  padding: 2rem;
 }
 
 /* Grid for inputs */
 .auth-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
-  margin-bottom: 2rem;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1rem 1.25rem;
+  margin-top: 1rem;
 }
 
-/* Full width fields */
-.auth-grid .full {
-  grid-column: 1 / -1;
+.auth-grid > div { grid-column: span 6; }
+.auth-grid .full { grid-column: 1 / -1; }
+
+@media (max-width: 800px) {
+  .auth-grid { grid-template-columns: repeat(6, 1fr); }
+  .auth-grid > div { grid-column: 1 / -1; }
 }
 
-/* Labels & Inputs */
+/* Field blocks */
 .auth-wrapper label {
   display: block;
   font-weight: 600;
-  margin-bottom: 0.4rem;
-  font-size: 0.9rem;
-  color: #ddd;
+  margin-bottom: 0.35rem;
+  font-size: 0.95rem;
+  color: #eaeaea;
 }
 
 .auth-wrapper input,
 .auth-wrapper select,
 .auth-wrapper textarea {
   width: 100%;
-  padding: 0.9rem;
-  border: 1px solid #333;
-  background: #1a1a1a;
+  padding: 0.85rem 0.95rem;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(26,26,26,0.85);
   color: #fff;
   font-size: 1rem;
-  border-radius: 0; /* sharp edges */
+  border-radius: 10px;
   outline: none;
-  transition: border-color 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
+
+.auth-wrapper input::placeholder,
+.auth-wrapper textarea::placeholder { color: #888; }
 
 .auth-wrapper input:focus,
 .auth-wrapper select:focus,
 .auth-wrapper textarea:focus {
-  border-color: #f0a500;
+  border-color: #00e5ffff;
+  box-shadow: 0 0 0 3px rgba(240,165,0,0.12);
+  background: rgba(30,30,30,0.95);
 }
 
-/* Sections */
+/* Fieldsets */
 .auth-wrapper fieldset {
-  border: 1px solid #333;
-  padding: 1.5rem;
-  margin-bottom: 2rem;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-top: 1rem;
 }
 
 .auth-wrapper legend {
-  font-weight: 600;
-  color: #f0a500;
   padding: 0 0.5rem;
-  text-transform: uppercase;
+  color: #00e5ffff;
+  font-weight: 700;
+  letter-spacing: 0.3px;
   font-size: 0.95rem;
 }
 
-/* Button */
+/* Actions */
 .auth-wrapper .btn-primary {
   display: inline-block;
-  background: #f0a500;
+  background: linear-gradient(135deg, #f0a500, #ffb733);
   color: #111;
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
-  padding: 1rem 2rem;
+  letter-spacing: 0.5px;
+  padding: 0.95rem 1.5rem;
   border: none;
   cursor: pointer;
-  transition: background 0.3s ease;
-  border-radius: 0;
-  margin-top: 1rem;
+  transition: transform 0.12s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  border-radius: 12px;
+  margin-top: 0.5rem;
   width: 100%;
   max-width: 320px;
+  box-shadow: 0 10px 24px #00e5ffff;
 }
 
-.auth-wrapper .btn-primary:hover {
-  background: #d98c00;
+.auth-wrapper .btn-primary:hover,
+.auth-wrapper .btn-primary:focus {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px #00e5ffff;
+  outline: none;
 }
 
-/* Bottom text */
+/* Helper text */
 .auth-wrapper p {
-  margin-top: 2rem;
+  margin-top: 1.25rem;
   font-size: 0.95rem;
-  color: #aaa;
+  color: #cfcfcf;
 }
 
 .auth-wrapper p a {
-  color: #f0a500;
+  color: #00e5ffff;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
 }
 
-.auth-wrapper p a:hover {
-  text-decoration: underline;
-}
+.auth-wrapper p a:hover { text-decoration: underline; }
+
+/* File input preview alignment */
+#photo_preview_container { display: flex; align-items: center; gap: 0.75rem; }
 
     
   </style>
@@ -552,11 +580,14 @@
     </div>
     <ul>
       <li tabindex="0" role="link" aria-label="Go to Home section" onclick="window.location.href='/'">Home</li>
+      <li tabindex="0" role="link" aria-label="Dashboard" onclick="window.location.href='/dashboard/'">Dashboard</li>
       <li tabindex="0" role="link" aria-label="Go to About section" onclick="window.location.href='/about/'">About</li>
       {% if request.user.is_authenticated %}
         <li tabindex="0" style="display:flex; align-items:center; gap:0.5rem;">
-          {% if request.user.profile.photo %}
-            <img src="{{ request.user.profile.photo.url }}" alt="{{ request.user.username }}" style="width:32px;height:32px;border-radius:50%;object-fit:cover;border:1px solid #333;"/>
+          {% if user_profile and user_profile.photo %}
+            <img src="{{ user_profile.photo.url }}" alt="{{ request.user.username }}" style="width:32px;height:32px;border-radius:50%;object-fit:cover;border:1px solid #333;"/>
+          {% else %}
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:#222;border:1px solid #333;color:#aaa;font-size:0.8rem;">{{ request.user.username|slice:":1"|upper }}</span>
           {% endif %}
           <span>Hello, {{ request.user.first_name|default:request.user.username }}</span>
         </li>

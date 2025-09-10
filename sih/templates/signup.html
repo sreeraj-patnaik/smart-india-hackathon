@@ -12,6 +12,9 @@
       <div class="full">
         <label for="id_photo">Profile Photo</label>
         <input type="file" name="photo" id="id_photo" accept="image/*" />
+        <div id="photo_preview_container" style="margin-top:0.75rem;display:none;">
+          <img id="photo_preview" src="#" alt="Preview" style="width:72px;height:72px;border-radius:50%;object-fit:cover;border:1px solid #333;" />
+        </div>
       </div>
 
       <div>
@@ -107,3 +110,21 @@
   </form>
 </section>
 {% endblock %}
+<script>
+  (function(){
+    const input = document.getElementById('id_photo');
+    if (!input) return;
+    input.addEventListener('change', function(){
+      const file = this.files && this.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(e){
+        const img = document.getElementById('photo_preview');
+        const container = document.getElementById('photo_preview_container');
+        img.src = e.target.result;
+        container.style.display = 'block';
+      };
+      reader.readAsDataURL(file);
+    });
+  })();
+</script>
